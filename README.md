@@ -60,14 +60,25 @@ Fourth, the ground must be established for the driver chip.  Based on the pinout
 Fifth, I will decide where the inputs (the outputs from the MSP430 go on the driver) will go on the driver chip.  I decide to put one set into pins 3A and 4A, which are pins 10 and 15, respectively.  These inputs will control the right motor through pins 11 and 14, which are ground and input for the right motor, respectively.  Then, the next set of intputs will go into 1A and 2A, which are pins 2 and 7, respectively.  It's outputs are pins 3 and 6, which correspond to input high voltage and the ground input voltage for the Left motor.  Don't worry, this will be shown in a schematic.  
 
 
+INSERT SCHEMATIC OF THE DRIVER
 
+**Choose Outputs for the MSP340**
+
+For simplicity sake, the connections to GND and the regulator made earlier will not be shown again. The outputs will be chosen as below: 
+
+P1.0 = Input Left Low
+P1.1 = Input Left High
+P2.0 = Input Right High
+P2.1 = Input Right Low
+
+At this point in the lab I am just assigning the titles "high" and "low" with consistency.  These names might change later if they prove inconvenient.  
 
 
 **Adding Extra Parts to Circuit**
 
 Only the first will be added at this moment.  It will be ~100uF, as indicated in the directions, and will be placed across the 5v bus.  Of course the positive end must be placed in the 5v bus!!  No individual schematic is needed for this.  
 
-
+At this point, all of the hardware for basic functionality was completed.  When A functionality is pursued later, hardware will be developed for that.  
 
 
 #Required Functionality
