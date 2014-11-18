@@ -52,7 +52,7 @@ Its pinout and function table may be seen below:
 
 Next, to understand how to hook this up to the motors and to the MSP430, we must first decide how the program will run.  For simplicity sake, I plan on using two individual output signals for the forward direction, and a common output signal for the reverse.  This should make the design easier since we are not required to turn backwards. Therefore, hooking up the driver to the MSP430 and the motos should be relatively easy.  
 
-
+First, we note that V_cc1 must be between 4.5 and 5.5 volts, as seen in the datasheet.  Therefore, V_ccs1 must be hooked up to the 5v source, which is the only source within range available on the robot.  
 
 
 
