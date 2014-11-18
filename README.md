@@ -56,7 +56,11 @@ First, we note that V_cc1 must be between 4.5 and 5.5 volts, as seen in the data
 
 Secondly, V_cc2 is meant for the outputs, as noted on the datasheet.  It must be between the range of 4.5 and 36v.  Knowing that the voltage to provide the motors must be greater than 5v, we know that V_cc2 must be hooked up to the 12v source, the only other available source on the chip.  Also, I remember when reading the prelab instructions that if 12v are used, then the duty cycle may not exceed 60%.  This will hurt the motor.  Just something to keep in mind for later.  
 
-Thirdly, the 1,2 EN and 3,4 EN pins will be involved in the logic of the circuit.  Their main purpose is to enable the outputs when their voltage is high.  It would make the most sense for the purposes of this design to make them always high.  Then, the outputs 1-4, or the outputs which are sent to the motors, will be determined entirely by the code.  I think this will lead to fewer complications later on.  
+Thirdly, the 1,2 EN and 3,4 EN pins will be involved in the logic of the circuit.  Their main purpose is to enable the outputs when their voltage is high.  It would make the most sense for the purposes of this design to make them always high.  Then, the outputs 1-4, or the outputs which are sent to the motors, will be determined entirely by the code.  I think this will lead to fewer complications later on.  Therefore, to do this, the 5v bus will be connected to pins 1, 9, and 16.  
+
+Fourth, the ground must be established for the driver chip.  Based on the pinout, GND is pins 4, 5, 12, and 13.  Therefore, all of these are connected to GND.  
+
+Fifth, I will decide where the inputs (the outputs from the MSP430 go on the driver) will go on the driver chip.  I decide to put one set into pins 3A and 4A, which are pins 10 and 15, respectively.  These inputs will control the right motor through pins 11 and 14, which are ground and input for the right motor, respectively.  Then, the next set of intputs will go into 1A and 2A, which are pins 2 and 7, respectively.  It's outputs are pins 3 and 6, which correspond to input high voltage and the ground input voltage for the Left motor.  Don't worry, this will be shown in a schematic.  
 
 
 
