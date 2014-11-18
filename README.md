@@ -33,7 +33,24 @@ ECE382_Lab06
 1. The MSP430 can only accept 3.3v, whereas the source we have can only output 5v.  We need to use a regulator to drop this voltage.  Should maybe use a small capacitor across the 5V rail to smoth high frequency noise.  This capacitor should be ~0.1uF.  
 2. To determine how this should be hooked up, this datasheet was consulted.  It deals with [voltage regulators](http://www.ece382.com/datasheets/LD1117V33.pdf).  This schematic is used below:
 
-![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab05/master/2.%20Pictures/Annotate%20Waveform.PNG "func location")
+![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Prelab/TO-220%20Datasheet%20Schematic.PNG "TO-220 Config")
+
+This was then attached to the MSP430 in the following way:
+
+INSERT PICTURE OF 5V, REGULATOR, AND MSP430 HOOKUP
+
+**Adding Large Coupling Capacitor**
+
+Only the first will be added at this moment.  It will be ~100uF, as indicated in the directions, and will be placed across the 5v bus.  Of course the positive end must be placed in the 5v bus!!  No individual schematic is needed for this.  
+
+**Adding the Driver**
+The purpose of the driver allows the MSP430 to control the motors without burning up due to the current requirements.  The datasheet for the Quadruple Half Driver can be seen [here](http://www.ece382.com/datasheets/SN754410.pdf).  
+
+Its pinout and function table may be seen below: 
+
+![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Prelab/Driver%20Pinout%20and%20Function%20Table.PNG "Driver Config")
+
+
 
 
 #Required Functionality
