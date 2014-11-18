@@ -8,7 +8,7 @@ ECE382_Lab06
 **Things to accomplish**
 
 1. Use A regulator to power the MSP430.
-2. How to use hardware to achieve robot control.
+2. How to use hardware to achieve robot control (driver).
 2. Which pins will output which signals you need.
 3. Which side of the motor will you attach these signals to.
 4. How to use these signals to achieve forward/back/left/right movement.
@@ -39,9 +39,6 @@ This was then attached to the MSP430 in the following way:
 
 INSERT PICTURE OF 5V, REGULATOR, AND MSP430 HOOKUP
 
-**Adding Large Coupling Capacitor**
-
-Only the first will be added at this moment.  It will be ~100uF, as indicated in the directions, and will be placed across the 5v bus.  Of course the positive end must be placed in the 5v bus!!  No individual schematic is needed for this.  
 
 **Adding the Driver**
 The purpose of the driver allows the MSP430 to control the motors without burning up due to the current requirements.  The datasheet for the Quadruple Half Driver can be seen [here](http://www.ece382.com/datasheets/SN754410.pdf).  
@@ -61,6 +58,14 @@ Thirdly, the 1,2 EN and 3,4 EN pins will be involved in the logic of the circuit
 Fourth, the ground must be established for the driver chip.  Based on the pinout, GND is pins 4, 5, 12, and 13.  Therefore, all of these are connected to GND.  
 
 Fifth, I will decide where the inputs (the outputs from the MSP430 go on the driver) will go on the driver chip.  I decide to put one set into pins 3A and 4A, which are pins 10 and 15, respectively.  These inputs will control the right motor through pins 11 and 14, which are ground and input for the right motor, respectively.  Then, the next set of intputs will go into 1A and 2A, which are pins 2 and 7, respectively.  It's outputs are pins 3 and 6, which correspond to input high voltage and the ground input voltage for the Left motor.  Don't worry, this will be shown in a schematic.  
+
+
+
+
+
+**Adding Extra Parts to Circuit**
+
+Only the first will be added at this moment.  It will be ~100uF, as indicated in the directions, and will be placed across the 5v bus.  Of course the positive end must be placed in the 5v bus!!  No individual schematic is needed for this.  
 
 
 
