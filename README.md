@@ -54,6 +54,10 @@ Next, to understand how to hook this up to the motors and to the MSP430, we must
 
 First, we note that V_cc1 must be between 4.5 and 5.5 volts, as seen in the datasheet.  Therefore, V_ccs1 must be hooked up to the 5v source, which is the only source within range available on the robot.  
 
+Secondly, V_cc2 is meant for the outputs, as noted on the datasheet.  It must be between the range of 4.5 and 36v.  Knowing that the voltage to provide the motors must be greater than 5v, we know that V_cc2 must be hooked up to the 12v source, the only other available source on the chip.  Also, I remember when reading the prelab instructions that if 12v are used, then the duty cycle may not exceed 60%.  This will hurt the motor.  Just something to keep in mind for later.  
+
+Thirdly, the 1,2 EN and 3,4 EN pins will be involved in the logic of the circuit.  Their main purpose is to enable the outputs when their voltage is high.  It would make the most sense for the purposes of this design to make them always high.  Then, the outputs 1-4, or the outputs which are sent to the motors, will be determined entirely by the code.  I think this will lead to fewer complications later on.  
+
 
 
 
