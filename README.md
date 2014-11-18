@@ -6,6 +6,7 @@ ECE382_Lab06
 
 #Prelab
 **Things to accomplish**
+
 1. How to use hardware to achieve robot control
 2. Which pins will output which signals you need
 3. Which side of the motor will you attach these signals to
@@ -22,6 +23,7 @@ ECE382_Lab06
 
 
 **Remember**
+
 1. Never send voltage to both terminals at once.  
 
 
