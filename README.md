@@ -27,7 +27,7 @@ ECE382_Lab06
 
 1. Never send voltage to both terminals at once.  
 
-##Planning Process
+##Hardware Planning Process
 
 **How to Power the MSP430**
 1. The MSP430 can only accept 3.3v, whereas the source we have can only output 5v.  We need to use a regulator to drop this voltage.  Should maybe use a small capacitor across the 5V rail to smoth high frequency noise.  This capacitor should be ~0.1uF.  
@@ -67,18 +67,32 @@ INSERT SCHEMATIC OF THE DRIVER
 For simplicity sake, the connections to GND and the regulator made earlier will not be shown again. The outputs will be chosen as below: 
 
 P1.0 = Input Left Low
+
 P1.1 = Input Left High
+
 P2.0 = Input Right High
+
 P2.1 = Input Right Low
+
+
+
+INSERT PICTURES FOR MSP430 OUTPUTS
 
 At this point in the lab I am just assigning the titles "high" and "low" with consistency.  These names might change later if they prove inconvenient.  
 
 
 **Adding Extra Parts to Circuit**
 
-Only the first will be added at this moment.  It will be ~100uF, as indicated in the directions, and will be placed across the 5v bus.  Of course the positive end must be placed in the 5v bus!!  No individual schematic is needed for this.  
+Only the decoupling capacitor will be added at this moment.  It will be ~100uF, as indicated in the directions, and will be placed across the 5v bus.  Of course the positive end must be placed in the 5v bus!!  No individual schematic is needed for this.  
 
 At this point, all of the hardware for basic functionality was completed.  When A functionality is pursued later, hardware will be developed for that.  
+
+
+MAYBE INSERT TOTAL SCHEMATIC??????????
+
+
+##Software Planning Process
+
 
 
 #Required Functionality
