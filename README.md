@@ -37,7 +37,7 @@ ECE382_Lab06
 
 This was then attached to the MSP430 in the following way:
 
-INSERT PICTURE OF 5V, REGULATOR, AND MSP430 HOOKUP
+![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Prelab/Regulator%20Schematic.JPG "MSP Regulator")
 
 
 **Adding the Driver**
@@ -60,7 +60,7 @@ Fourth, the ground must be established for the driver chip.  Based on the pinout
 Fifth, I will decide where the inputs (the outputs from the MSP430 go on the driver) will go on the driver chip.  I decide to put one set into pins 3A and 4A, which are pins 10 and 15, respectively.  These inputs will control the right motor through pins 11 and 14, which are ground and input for the right motor, respectively.  Then, the next set of intputs will go into 1A and 2A, which are pins 2 and 7, respectively.  It's outputs are pins 3 and 6, which correspond to input high voltage and the ground input voltage for the Left motor.  Don't worry, this will be shown in a schematic.  
 
 
-INSERT SCHEMATIC OF THE DRIVER
+![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Prelab/Driver%20Schematic.JPG "Driver")
 
 **Choose Outputs for the MSP340**
 
@@ -76,7 +76,7 @@ P2.1 = Input Right Low
 
 
 
-INSERT PICTURES FOR MSP430 OUTPUTS
+![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Prelab/MSP%20Outputs%20Schematic.JPG "MSP Outputs")
 
 At this point in the lab I am just assigning the titles "high" and "low" with consistency.  These names might change later if they prove inconvenient.  
 
