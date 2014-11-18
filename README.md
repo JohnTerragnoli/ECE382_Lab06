@@ -26,13 +26,12 @@ ECE382_Lab06
 **Remember**
 
 1. Never send voltage to both terminals at once.  
-2. 
 
 ##Planning Process
 
 **How to Power the MSP430**
 1. The MSP430 can only accept 3.3v, whereas the source we have can only output 5v.  We need to use a regulator to drop this voltage.  Should maybe use a small capacitor across the 5V rail to smoth high frequency noise.  This capacitor should be ~0.1uF.  
-
+2. To determine how this should be hooked up, this datasheet was consulted.  It deals with [voltage regulators](http://www.ece382.com/datasheets/LD1117V33.pdf).  This schematic is used below:
 
 
 
