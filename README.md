@@ -141,7 +141,8 @@ In these registers, the most important bits will be TACTL, the timer which will 
 1. basicFunctionality(): moves the car backwards.  halts, moves forwards.  Makes a half right turn, goes straight.  Makes a half left turn, goes straight.  Makes a full right turn, goes straight.  Makes a full left turn, goes straight; moveBackwards(), hold(2), halt(), hold(1), moveForward(), hold(2), halfRight(), hold(1), halfLeft(), hold(1), fullRight(), hold(1), fullLeft(), hold(1), moveStraight(1000).  
 2. move will be developed for bragging rights and such later on.  
 
-
+**Worst Case Draw Current**
+This has not been found yet.  It will be found in the lab soon.  
 
 ##Software Planning Process
 
