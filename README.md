@@ -151,7 +151,7 @@ The flowchart for the code may be seen below:
 ![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Prelab/Prelab%20Flowchart.JPG "Flowchart")
 
 **Worst Case Draw Current**
-This has not been found yet.  It will be found in the lab soon.  
+This has not been found yet.  It will be found in the lab soon, since it is not required for the prelab.  Basically what will be done is to run a specific PWM through the circuit, stopping the wheel forcefully, and measuring the spike in current.  
 
 
 
