@@ -102,6 +102,11 @@ After I did all of this, I thought it would be smart to add the IR sensor into t
 
 Unfortunately, there was no datasheet for the IR sensor used in class.  However, the pinout is still known.  If looking at the front dot, the right pin is power, the middle pin is ground, and the left pin is the output.  The input voltage will be 3.3v, since this is traveling right to the MSP430.  The ground will be connected witht the rest.  The output of the IR will go to pin P1.7, which was chosen at random.  
 
+The total schematic including the IR sensor can be seen below: 
+![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Prelab/Total%20Circuit%20with%20IR%20Sensor.PNG "Everything Hardware")
+
+Note: Unfortunately, the correct Fritzing part for the IR sensor could not be found.  Therefore, I just included a part which looked exactly like the sensor, because the only reason for Fritzing is to get the picture anyway.  
+
 
 
 
