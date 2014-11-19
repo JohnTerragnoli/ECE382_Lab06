@@ -3,6 +3,7 @@ ECE382_Lab06
 
 #Purpose
 
+The purpose of this lab is to use pulse width modulation to use an MSP430 to control a small robot car.  This will be done with the help of other devices, such as driver and regulator chips, IR sensors, and a remote.  
 
 #Prelab
 **Things to accomplish**
@@ -159,8 +160,6 @@ This has not been found yet.  It will be found in the lab soon.
 #Required Functionality
 
 
-#B Functionality
-
 
 #A Functionality
 
@@ -171,6 +170,8 @@ This has not been found yet.  It will be found in the lab soon.
 
 #Documentation:
 ##Prelab
+Only used the datasheets and the picture of the hardware hook up that was give to us by our teachers.  
+
 ##Required Functionality
-##B Functionality
+
 ##A Functionality
