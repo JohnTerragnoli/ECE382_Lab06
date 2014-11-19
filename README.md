@@ -153,7 +153,6 @@ The flowchart for the code may be seen below:
 **Worst Case Draw Current**
 This has not been found yet.  It will be found in the lab soon.  
 
-##Software Planning Process
 
 
 
