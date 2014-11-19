@@ -102,6 +102,45 @@ After this hardware was determined, the software was handled.  This is picking u
 **Achieving Movement**
 When a positive voltage is placed across a motor, it will spin forward.  When a negative voltage is applied, it will spin backwards.  To achieve forward movement then, a positive voltage must be applied to both motors.  To make the car turn right, a positive voltage should be applied to the left wheel and the right wheel with no voltage.  To turn left, do the opposite.  The duration of how long a wheel is stopped will determine how sharp the turn is.  To move the car backwards, just apply a negative voltage to the motors.  This can be done easily done by feeding the input to the usually lower terminal of the motor to be above the usually high voltage of the motor.  
 
+**Setting up the PWM**
+This will be fairly complicated, since it has never been approached before.  To do this, we will first approximate a PWM of 50%.  It was suggested by Captain Trimble to not exceed 60%, but I would like to play it safe and not blow anything up.  To set this up, I just need to transmit a "high" or the desired voltage difference between my two output pins 50% of the time by constantly turning it on and off.  To do this, I will need two different timers.  This will be useful in case I decide to change the duty cycle later on.  
+
+**Registers to Use**
+The TACCTLx, Capture/Compare Control Register will give into on when certain numbers are hit.  
+Other handy registers are TACCR0 and TACCR1.  These will be the different numbers we are checking for when counting.  These two numbers will determine the PWM.  When we count to the lower one, turn on the power.  When we count to the higher one, turn off the power.  Start from the beginning and repeat!!  To test this out I will first start with creating a simple program, like a light, and trying to change the brightness using PWM.  
+
+In these registers, the most important bits will be TACTL, the timer which will be stopped and cleared when needed P1/P2DIR and P1/P2SEL, which will help determine the outputs
+
+**Initialization Sequence**
+1. Stop the watchdog timer.  
+2. Set up the outputs (of the MSP430)
+3. Clear the timers
+4. decide which clock to use
+5. Set the values for TACCR0 and TACCR1
+6. Determine the value of the voltage which will be sent to the driver.  
+6. Begin the while loop.  
+
+
+**Simple Commands**
+1. spinForward().  This will be done by ensuring that a positive voltage is applied across the motor.  
+2. stopSpin().  This will be done by ensuring that no voltage is applied across the motor.
+3. spinBackwards().   This will be done by ensuring that a negative voltage is applied across the motor. 
+
+
+**Medium Commands**
+1. moveForward(): ensure both wheels are spinning forward.  Calls the spinForward() command on both wheels.  Ensure that the voltage applied to each wheel is the same.  
+2. halt(): makes the car stop moving.  Calls stopSpin() on each motor at the same time. 
+3. moveBackwards(): ensure both wheels are spinning backwards.  Calls the spinBackwards() command on both wheels.  Ensure that the voltage applied to each wheel is the same.  
+4. fullRight(): calls spinForward() for left motor.  calls stopSpin on right motor for 1 second, then calls spinForward for the right motor as well.  
+5. fullLeft(): same concept as fullRight() except switching the wheels used. 
+6. halfRight(): same as fullRight except calls stopSpin for 0.5 seconds.  
+7. halfLeft():  same as fullLeft except calls stopSpin for 0.5 seconds.  
+8. hold(time):  keeps the voltage state of the motors (and the PWM) for a certain amount of seconds).  
+
+**High Commands/Demonstration Commands**
+1. basicFunctionality(): moves the car backwards.  halts, moves forwards.  Makes a half right turn, goes straight.  Makes a half left turn, goes straight.  Makes a full right turn, goes straight.  Makes a full left turn, goes straight; moveBackwards(), hold(2), halt(), hold(1), moveForward(), hold(2), halfRight(), hold(1), halfLeft(), hold(1), fullRight(), hold(1), fullLeft(), hold(1), moveStraight(1000).  
+2. move will be developed for bragging rights and such later on.  
+
 
 
 ##Software Planning Process
