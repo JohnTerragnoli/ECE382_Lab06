@@ -107,7 +107,7 @@ The total schematic including the IR sensor can be seen below:
 
 Note: Unfortunately, the correct Fritzing part for the IR sensor could not be found.  Therefore, I just included a part which looked exactly like the sensor, because the only reason for Fritzing is to get the picture anyway.  
 
-
+This was done using Fritzing software.  To view the file for this software, use [this link](https://github.com/JohnTerragnoli/ECE382_Lab06/blob/master/2.%20Photos/Prelab/Lab06%20Prelab%20Schematic.fzz).  
 
 
 ##Software Planning Process
