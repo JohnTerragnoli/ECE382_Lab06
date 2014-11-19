@@ -88,7 +88,10 @@ Only the decoupling capacitor will be added at this moment.  It will be ~100uF, 
 At this point, all of the hardware for basic functionality was completed.  When A functionality is pursued later, hardware will be developed for that.  
 
 
-MAYBE INSERT TOTAL SCHEMATIC??????????
+The total schematic can be seen below: 
+![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Prelab/Complete%20Hookup.PNG "Total Schematic")
+
+This was done using Fritzing software.  To view the file for this software, use [this link](https://github.com/JohnTerragnoli/ECE382_Lab06/blob/master/2.%20Photos/Prelab/Lab06%20Prelab%20Schematic.fzz).  
 
 
 ##Software Planning Process
