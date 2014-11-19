@@ -9,18 +9,18 @@ ECE382_Lab06
 
 1. Use A regulator to power the MSP430.
 2. How to use hardware to achieve robot control (driver).
-2. Which pins will output which signals you need.
-3. Which side of the motor will you attach these signals to.
-4. How to use these signals to achieve forward/back/left/right movement.
-5. consider how you will setup the PWM subsystem to achieve control.
-6. what are the registers you'll need to use.
-7. which bits in the registers are important?
-8. what's the initialization sequence you'll need?
-9. Consider additional hardware you'll need (regulator, motor driver chip, decoupling capacitor).
-10. How will you connect these extra parts?
-11. Try to build simple commands, such as moving one motor one direction.
-12. Combine simple commands to make complex ones, like just moving in a specific direction. 
-13. Determine worst-case current draw from your motors (**motor stall current**)
+3. Consider additional hardware you'll need (regulator, motor driver chip, decoupling capacitor).
+4. Which pins will output which signals you need.
+5. Which side of the motor will you attach these signals to.
+6. How will you connect these extra parts?
+7. How to use these signals to achieve forward/back/left/right movement.
+8. consider how you will setup the PWM subsystem to achieve control.
+9. what are the registers you'll need to use.
+10. which bits in the registers are important?
+11. what's the initialization sequence you'll need?
+12. Try to build simple commands, such as moving one motor one direction.
+13. Combine simple commands to make complex ones, like just moving in a specific direction.
+14. Determine worst-case current draw from your motors (**motor stall current**)
 
 
 **Remember**
@@ -92,6 +92,16 @@ The total schematic can be seen below:
 ![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Prelab/Complete%20Hookup.PNG "Total Schematic")
 
 This was done using Fritzing software.  To view the file for this software, use [this link](https://github.com/JohnTerragnoli/ECE382_Lab06/blob/master/2.%20Photos/Prelab/Lab06%20Prelab%20Schematic.fzz).  
+
+
+##Software Planning Process
+
+
+After this hardware was determined, the software was handled.  This is picking up around number 7 in the list made up top. 
+
+**Achieving Movement**
+When a positive voltage is placed across a motor, it will spin forward.  When a negative voltage is applied, it will spin backwards.  To achieve forward movement then, a positive voltage must be applied to both motors.  To make the car turn right, a positive voltage should be applied to the left wheel and the right wheel with no voltage.  To turn left, do the opposite.  The duration of how long a wheel is stopped will determine how sharp the turn is.  To move the car backwards, just apply a negative voltage to the motors.  This can be done easily done by feeding the input to the usually lower terminal of the motor to be above the usually high voltage of the motor.  
+
 
 
 ##Software Planning Process
