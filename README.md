@@ -62,6 +62,9 @@ Fifth, I will decide where the inputs (the outputs from the MSP430 go on the dri
 
 ![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Prelab/Driver%20Schematic.JPG "Driver")
 
+
+**Note:** The four bottom boxes should all be for the "left" motor. I am sorry for writing this down wrong.  
+
 **Choose Outputs for the MSP340**
 
 For simplicity sake, the connections to GND and the regulator made earlier will not be shown again. The outputs will be chosen as below: 
