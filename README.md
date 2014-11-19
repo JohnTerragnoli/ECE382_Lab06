@@ -97,6 +97,13 @@ The total schematic can be seen below:
 
 This was done using Fritzing software.  To view the file for this software, use [this link](https://github.com/JohnTerragnoli/ECE382_Lab06/blob/master/2.%20Photos/Prelab/Lab06%20Prelab%20Schematic.fzz).  
 
+**IR Sensor**
+After I did all of this, I thought it would be smart to add the IR sensor into the circuit early.  To do this, all I needed was ground, power, and the output of the IR (which will be input into the MSP430).
+
+Unfortunately, there was no datasheet for the IR sensor used in class.  However, the pinout is still known.  If looking at the front dot, the right pin is power, the middle pin is ground, and the left pin is the output.  The input voltage will be 3.3v, since this is traveling right to the MSP430.  The ground will be connected witht the rest.  The output of the IR will go to pin P1.7, which was chosen at random.  
+
+
+
 
 ##Software Planning Process
 
