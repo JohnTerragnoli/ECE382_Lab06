@@ -1,6 +1,7 @@
 #include <msp430.h>
 #include "header.h"
 
+
 void main(void) {
 
     WDTCTL = WDTPW|WDTHOLD;                 // stop the watchdog timer
@@ -26,38 +27,11 @@ void main(void) {
     TA1CCTL2 = OUTMOD_3;					// set TACCTL2 to Set / Reset mode
 
 
-
     while (1) {
-
-
-    //__delay_cycles(1000000);
-    //P2OUT |= BIT2;
-
 
     	//basicFunctionality();
 
-    	backAndForth();
-
-
-/*
-        TA1CCTL1 = OUTMOD_3;
-    	TA1CCTL2 = OUTMOD_3;
-
-    	P2OUT |= BIT3 | BIT2; 		// Motor terminal high for backward operation
-    	P2OUT |= BIT0 | BIT5;
-
-        P2SEL |= BIT2;
-        P2SEL |= BIT4;
-
-        __delay_cycles(STRAIGHTTIME);
-
-        //REVERSE DIRECTION ONE OF THE WHEELS.
-        P2SEL &= ~BIT2;
-        P2SEL &= ~BIT4;
-        __delay_cycles(STRAIGHTTIME);
-*/
-
-
+    	//backAndForth();
 
     } // end loop
 
