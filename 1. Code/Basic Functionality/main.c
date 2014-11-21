@@ -15,10 +15,10 @@ void main(void) {
 	TA1CTL = ID_3 | TASSEL_2 | MC_1;		// Use 1:8 presclar off MCLK
     TA1CCR0 = 100;						// set signal period
 
-    TA1CCR1 = 40;
+    TA1CCR1 = 50;
     TA1CCTL1 = OUTMOD_7;					// set TACCTL1 to Reset / Set mode
 
-    TA1CCR2 = 60;
+    TA1CCR2 = 50;
     TA1CCTL2 = OUTMOD_3;					// set TACCTL2 to Set / Reset mode
 
 

@@ -94,7 +94,7 @@ void moveBackward(){
  */
 void fullTurnRight(){
     turnRight();
-    __delay_cycles(FULLTURN);
+    __delay_cycles(1.5*STRAIGHTTIME);
 }
 
 
