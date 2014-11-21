@@ -29,6 +29,26 @@ void main(void) {
 
     while (1) {
 
+    	pauseBoth();
+		pauseBoth();
+		pauseBoth();
+    	moveForward();
+    	fullTurnLeft();
+    	moveForward();
+    	fullTurnRight();
+    	moveForward();
+    	halfTurnLeft();
+    	moveForward();
+    	halfTurnRight();
+    	moveForward();
+    	moveForward();
+
+
+        //__delay_cycles(STRAIGHTTIME);
+
+
+
+
     	//basicFunctionality();
 
     	//backAndForth();

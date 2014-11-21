@@ -23,7 +23,13 @@ void halfTurnLeft();
 void moveForward();
 void moveBackward();
 void startStop();
-void pause();
+void pauseBoth();
+void stopBoth();
+void stopRight();
+void stopLeft();
+void rightOn();
+void leftOn();
+void bothOn();
 
 
 

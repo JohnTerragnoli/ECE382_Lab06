@@ -12,6 +12,11 @@
 
 
 void basicFunctionality(){
+	pause();
+	pause();
+	pause();
+	pause();
+	pause();
 	moveForward();
 	fullTurnRight();
 	moveForward();
@@ -21,67 +26,29 @@ void basicFunctionality(){
 	moveForward();
 	halfTurnLeft();
 	moveForward();
-	pause();
-	pause();
-	pause();
-	pause();
-	pause();
+
 }
 
 
-/*
- * Turns the robot 90 to the right.
- */
-void fullTurnRight(){
-    P2SEL |= BIT2;
-    P2SEL |= BIT4;
-    P2SEL &= ~BIT4;
-    __delay_cycles(FULLTURN);
-}
 
-/*
- * Turns the robot 45 to the right.
- */
-void halfTurnRight(){
-    P2SEL |= BIT2;
-    P2SEL |= BIT4;
-    P2SEL &= ~BIT4;
-    __delay_cycles(HALFTURN);
-}
 
-/*
- * Turns the robot 90 to the left.
- */
-void fullTurnLeft(){
-    P2SEL |= BIT2;
-    P2SEL |= BIT4;
-    P2SEL &= ~BIT2;
-    __delay_cycles(FULLTURN);
-}
-
-/*
- * Turns the robot 45 to the left.
- */
-void halfTurnLeft(){
-    P2SEL |= BIT2;
-    P2SEL |= BIT4;
-    P2SEL &= ~BIT2;
-    __delay_cycles(HALFTURN);
-}
+//__________________________________________________
+//REQUIREMENT FUNCTIONS
+//__________________________________________________
 
 
 /*
- * moves forward for one second.
+ * Moves forward indefinitely
  */
 void moveForward(){
-    //goes straight.
-    P2SEL |= BIT2;
-    P2SEL |= BIT4;
-    __delay_cycles(STRAIGHTTIME);
+	bothOn();
 }
 
+
+
+
 /*
- * Move it backwards
+ * Move it backwards.  DOES NOT WORK
  */
 void moveBackward(){
 	P2OUT |= (BIT1 | BIT3);
@@ -93,38 +60,197 @@ void moveBackward(){
     __delay_cycles(STRAIGHTTIME);
 }
 
+
+
+
 /*
- * pauses the car for a desired amount of time.
+ * Turns the robot 90 to the right.
  */
-void pause(){
-    //STOP THE WHEELS.
-    P2SEL &= ~BIT2;
-    P2SEL &= ~BIT4;
+void fullTurnRight(){
+    turnRight();
+    __delay_cycles(FULLTURN);
+}
+
+
+
+/*
+ * Turns the robot 45 to the right.
+ */
+void halfTurnRight(){
+    turnRight();
+    __delay_cycles(HALFTURN);
+}
+
+
+
+/*
+ * Turns the robot 90 to the left.
+ */
+void fullTurnLeft(){
+   turnLeft();
+    __delay_cycles(FULLTURN);
+}
+
+
+
+/*
+ * Turns the robot 45 to the left.
+ */
+void halfTurnLeft(){
+	turnLeft();
+    __delay_cycles(HALFTURN);
+}
+//__________________________________________________
+//__________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//_________________________________________________________________
+//MEDIUM COMMANDS
+//_________________________________________________________________
+
+void bothOn(){
+	rightOn();
+	leftOn();
+	__delay_cycles(STRAIGHTTIME);
+}
+
+
+/*
+ * Stops the car until further notice.
+ */
+void stopBoth(){
+    stopRight();
+    stopLeft();
     __delay_cycles(STRAIGHTTIME);
+    rightOn();
+    leftOn();
 }
-
 
 
 
 /*
- * stops the wheels, then lets them run forward again.
+ * Pauses the car for one second
  */
-void startStop(){
-	pause();
-	straightForward();
+void pauseBoth(){
+	stopRight();
+	stopLeft();
+	 __delay_cycles(STRAIGHTTIME);
+	rightOn();
+	leftOn();
 }
 
 
 /*
- * Moves the Car forward then backwards.
+ * Sets the car up for any kind of right turn
  */
-void backAndForth(){
-	moveForward();
-	pause();
-	moveBackward();
-	pause();
+void turnRight(){
+	leftOn();
+	stopRight();
 }
 
 
+/*
+ * Sets the care up for any kind of left turn.
+ */
+void turnLeft(){
+	rightOn();
+	stopLeft();
+}
+//_________________________________________________________________
+//_________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//_________________________________________________________________
+//VERY BASIC FUNCTIONS
+
+/*
+ * Stops the right wheen until further notice.
+ */
+void stopRight(){
+    P2DIR &= ~BIT4;
+    P2SEL &= ~BIT4;
+}
+
+
+
+/*
+ * Stops the left wheel until further notice.
+ */
+void stopLeft(){
+    P2DIR &= ~BIT2;
+    P2SEL &= ~BIT2;
+}
+
+
+
+/*
+ * Starts the right wheel until further notice.
+ */
+void rightOn(){
+    P2DIR |= BIT4;
+    P2SEL |= BIT4;
+}
+
+
+/*
+ * Starts the left wheel until further notice.
+ */
+void leftOn(){
+    P2DIR |= BIT2;
+    P2SEL |= BIT2;
+}
 
 
