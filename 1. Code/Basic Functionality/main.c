@@ -33,17 +33,13 @@ void main(void) {
     //__delay_cycles(1000000);
     //P2OUT |= BIT2;
 
-        //goes straight.
-        P2SEL |= BIT2;
-        P2SEL |= BIT4;
-        __delay_cycles(STRAIGHTTIME);
 
-        //REVERSE DIRECTION ONE OF THE WHEELS.
-        P2SEL &= ~BIT2;
-        P2SEL &= ~BIT4;
-        __delay_cycles(STRAIGHTTIME);
+    	//basicFunctionality();
+
+    	backAndForth();
 
 
+/*
         TA1CCTL1 = OUTMOD_3;
     	TA1CCTL2 = OUTMOD_3;
 
@@ -59,62 +55,9 @@ void main(void) {
         P2SEL &= ~BIT2;
         P2SEL &= ~BIT4;
         __delay_cycles(STRAIGHTTIME);
+*/
 
 
-
-
-
-    	/*
-        //goes straight.
-        P2SEL |= BIT2;
-        P2SEL |= BIT4;
-        __delay_cycles(3*STRAIGHTTIME);
-
-        //HALTS.
-        P2SEL &= ~BIT2;
-        P2SEL &= ~BIT4;
-        __delay_cycles(3*STRAIGHTTIME);
-
-
-    	//TURNS RIGHT
-        P2SEL |= BIT2;
-        P2SEL &= ~BIT4;
-        __delay_cycles(FULLTURN);
-
-
-        //goes straight.
-        P2SEL |= BIT2;
-        P2SEL |= BIT4;
-        __delay_cycles(STRAIGHTTIME);
-
-    	//TURNS LEFT
-        P2SEL &= ~BIT2;
-        __delay_cycles(FULLTURN);
-
-
-        //goes straight.
-        P2SEL |= BIT2;
-        P2SEL |= BIT4;
-        __delay_cycles(STRAIGHTTIME);
-
-        //slight right;
-        P2SEL &= ~BIT4;
-        __delay_cycles(HALFTURN);
-
-        //goes straight.
-        P2SEL |= BIT2;
-        P2SEL |= BIT4;
-        __delay_cycles(STRAIGHTTIME);
-
-    	//slight left
-        P2SEL &= ~BIT2;
-        __delay_cycles(HALFTURN);
-
-        //goes straight.
-        P2SEL |= BIT2;
-        P2SEL |= BIT4;
-        __delay_cycles(STRAIGHTTIME);
-        */
 
     } // end loop
 

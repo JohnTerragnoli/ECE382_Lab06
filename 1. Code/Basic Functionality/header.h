@@ -13,10 +13,18 @@
 #define HALFTURN (FULLTURN*0.5)
 
 
-void turnRight();
-void turnLeft();
+void basicFunctionality();
+
+void backAndForth();
+void fullTurnRight();
+void fullTurnLeft();
+void halfTurnRight();
+void halfTurnLeft();
 void moveForward();
 void moveBackward();
+void startStop();
+void pause();
+
 
 
 
