@@ -11,23 +11,57 @@
 
 
 
+
+
+
+
+//__________________________________________________
+//FUNCTIONALITY FUNCTIONS
+//__________________________________________________
+
+/*
+ * Goes forward, makes a full left and right turn, then makes
+ *a half left and right turn, will eventually move it backwards.
+ */
 void basicFunctionality(){
-	pause();
-	pause();
-	pause();
-	pause();
-	pause();
+	pauseBoth();
+	pauseBoth();
+	pauseBoth();
+
+	moveBackward();
+	halt();
+	__delay_cycles(STRAIGHTTIME);
+
 	moveForward();
-	fullTurnRight();
-	moveForward();
+	__delay_cycles(STRAIGHTTIME);
 	fullTurnLeft();
 	moveForward();
-	halfTurnRight();
+	__delay_cycles(STRAIGHTTIME);
+	fullTurnRight();
 	moveForward();
+	__delay_cycles(STRAIGHTTIME);
 	halfTurnLeft();
 	moveForward();
+	__delay_cycles(STRAIGHTTIME);
+	halfTurnRight();
+	moveForward();
+	__delay_cycles(2*STRAIGHTTIME);
 
 }
+
+//__________________________________________________
+//__________________________________________________
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -35,8 +69,6 @@ void basicFunctionality(){
 //__________________________________________________
 //REQUIREMENT FUNCTIONS
 //__________________________________________________
-
-
 /*
  * Moves forward indefinitely
  */
@@ -51,13 +83,7 @@ void moveForward(){
  * Move it backwards.  DOES NOT WORK
  */
 void moveBackward(){
-	P2OUT |= (BIT1 | BIT3);
-	P2OUT &= ~BIT2;
-	P2DIR |= (BIT1 | BIT3);
-	P2DIR &= ~BIT2;
-	//P2OUT ^=BIT3;
-	//P2DIR ^=BIT3;
-    __delay_cycles(STRAIGHTTIME);
+	bothOnBackward();
 }
 
 
@@ -100,6 +126,14 @@ void halfTurnLeft(){
 	turnLeft();
     __delay_cycles(HALFTURN);
 }
+
+/*
+ * Stops the robot, whatever direction it is moving.
+ */
+void halt(){
+	stopBoth();
+	stopBothBackward();
+}
 //__________________________________________________
 //__________________________________________________
 
@@ -136,10 +170,21 @@ void halfTurnLeft(){
 //MEDIUM COMMANDS
 //_________________________________________________________________
 
+/*
+ * Makes both motors move forwards.
+ */
 void bothOn(){
 	rightOn();
 	leftOn();
-	__delay_cycles(STRAIGHTTIME);
+}
+
+
+/*
+ * Makes both motors move backwards!
+ */
+void bothOnBackward(){
+	leftOnBackward();
+	rightOnBackward();
 }
 
 
@@ -150,9 +195,20 @@ void stopBoth(){
     stopRight();
     stopLeft();
     __delay_cycles(STRAIGHTTIME);
-    rightOn();
-    leftOn();
+    //rightOn();
+    //leftOn();
 }
+
+
+/**
+ * Stops the backwards movement.
+ */
+void stopBothBackward(){
+	stopLeftBackward();
+	stopRightBackward();
+}
+
+
 
 
 
@@ -215,7 +271,7 @@ void turnLeft(){
 
 //_________________________________________________________________
 //VERY BASIC FUNCTIONS
-
+//_________________________________________________________________
 /*
  * Stops the right wheen until further notice.
  */
@@ -232,6 +288,23 @@ void stopRight(){
 void stopLeft(){
     P2DIR &= ~BIT2;
     P2SEL &= ~BIT2;
+}
+
+/**
+ * Stops the right wheel from moving backwards.
+ */
+void stopRightBackward(){
+	P2DIR &= ~BIT5;
+	P2SEL &= ~BIT5;
+}
+
+
+/*
+ * Stops the left wheel from moving backwards.
+ */
+void stopLeftBackward(){
+	P2DIR &= ~BIT1;
+	P2SEL &= ~BIT1;
 }
 
 
@@ -253,4 +326,22 @@ void leftOn(){
     P2SEL |= BIT2;
 }
 
+/*
+ * Makes the left wheel turn backwards.
+ */
+void leftOnBackward(){
+	P2DIR |=BIT1;
+	P2SEL |=BIT1;
+}
 
+/*
+ * Makes the right wheel turn backwards.
+ */
+void rightOnBackward(){
+	P2DIR |=BIT5;
+	P2SEL |=BIT5;
+}
+
+
+//_________________________________________________________________
+//_________________________________________________________________
