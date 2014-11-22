@@ -11,120 +11,339 @@
 
 
 
+
+
+
+
+//__________________________________________________
+//FUNCTIONALITY FUNCTIONS
+//__________________________________________________
+
+/*
+ * Goes forward, makes a full left and right turn, then makes
+ *a half left and right turn, will eventually move it backwards.
+ */
 void basicFunctionality(){
+	pauseBoth();
+	pauseBoth();
+	pauseBoth();
+
+	moveBackward();
+	halt();
+	__delay_cycles(STRAIGHTTIME);
+
 	moveForward();
-	fullTurnRight();
-	moveForward();
+	__delay_cycles(STRAIGHTTIME);
 	fullTurnLeft();
 	moveForward();
-	halfTurnRight();
+	__delay_cycles(STRAIGHTTIME);
+	fullTurnRight();
 	moveForward();
+	__delay_cycles(STRAIGHTTIME);
 	halfTurnLeft();
 	moveForward();
-	pause();
-	pause();
-	pause();
-	pause();
-	pause();
+	__delay_cycles(STRAIGHTTIME);
+	halfTurnRight();
+	moveForward();
+	__delay_cycles(2*STRAIGHTTIME);
+
 }
+
+//__________________________________________________
+//__________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//__________________________________________________
+//REQUIREMENT FUNCTIONS
+//__________________________________________________
+/*
+ * Moves forward indefinitely
+ */
+void moveForward(){
+	bothOn();
+}
+
+
+
+
+/*
+ * Move it backwards.  DOES NOT WORK
+ */
+void moveBackward(){
+	bothOnBackward();
+}
+
+
 
 
 /*
  * Turns the robot 90 to the right.
  */
 void fullTurnRight(){
-    P2SEL |= BIT2;
-    P2SEL |= BIT4;
-    P2SEL &= ~BIT4;
-    __delay_cycles(FULLTURN);
+    turnRight();
+    __delay_cycles(1.5*STRAIGHTTIME);
 }
+
+
 
 /*
  * Turns the robot 45 to the right.
  */
 void halfTurnRight(){
-    P2SEL |= BIT2;
-    P2SEL |= BIT4;
-    P2SEL &= ~BIT4;
+    turnRight();
     __delay_cycles(HALFTURN);
 }
+
+
 
 /*
  * Turns the robot 90 to the left.
  */
 void fullTurnLeft(){
-    P2SEL |= BIT2;
-    P2SEL |= BIT4;
-    P2SEL &= ~BIT2;
+   turnLeft();
     __delay_cycles(FULLTURN);
 }
+
+
 
 /*
  * Turns the robot 45 to the left.
  */
 void halfTurnLeft(){
-    P2SEL |= BIT2;
-    P2SEL |= BIT4;
-    P2SEL &= ~BIT2;
+	turnLeft();
     __delay_cycles(HALFTURN);
 }
 
+/*
+ * Stops the robot, whatever direction it is moving.
+ */
+void halt(){
+	stopBoth();
+	stopBothBackward();
+}
+//__________________________________________________
+//__________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//_________________________________________________________________
+//MEDIUM COMMANDS
+//_________________________________________________________________
 
 /*
- * moves forward for one second.
+ * Makes both motors move forwards.
  */
-void moveForward(){
-    //goes straight.
-    P2SEL |= BIT2;
-    P2SEL |= BIT4;
-    __delay_cycles(STRAIGHTTIME);
+void bothOn(){
+	stopBothBackward();
+	rightOn();
+	leftOn();
 }
 
-/*
- * Move it backwards
- */
-void moveBackward(){
-	P2OUT |= (BIT1 | BIT3);
-	P2OUT &= ~BIT2;
-	P2DIR |= (BIT1 | BIT3);
-	P2DIR &= ~BIT2;
-	//P2OUT ^=BIT3;
-	//P2DIR ^=BIT3;
-    __delay_cycles(STRAIGHTTIME);
-}
 
 /*
- * pauses the car for a desired amount of time.
+ * Makes both motors move backwards!
  */
-void pause(){
-    //STOP THE WHEELS.
-    P2SEL &= ~BIT2;
+void bothOnBackward(){
+	stopBoth();
+	leftOnBackward();
+	rightOnBackward();
+}
+
+
+/*
+ * Stops the car until further notice.
+ */
+void stopBoth(){
+    stopRight();
+    stopLeft();
+    __delay_cycles(STRAIGHTTIME);
+    //rightOn();
+    //leftOn();
+}
+
+
+/**
+ * Stops the backwards movement.
+ */
+void stopBothBackward(){
+	stopLeftBackward();
+	stopRightBackward();
+}
+
+
+
+
+
+/*
+ * Pauses the car for one second
+ */
+void pauseBoth(){
+	stopRight();
+	stopLeft();
+	 __delay_cycles(STRAIGHTTIME);
+	rightOn();
+	leftOn();
+}
+
+
+/*
+ * Sets the car up for any kind of right turn
+ */
+void turnRight(){
+	leftOn();
+	stopRight();
+}
+
+
+/*
+ * Sets the care up for any kind of left turn.
+ */
+void turnLeft(){
+	rightOn();
+	stopLeft();
+}
+//_________________________________________________________________
+//_________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//_________________________________________________________________
+//VERY BASIC FUNCTIONS
+//_________________________________________________________________
+/*
+ * Stops the right wheen until further notice.
+ */
+void stopRight(){
+    P2DIR &= ~BIT4;
     P2SEL &= ~BIT4;
-    __delay_cycles(STRAIGHTTIME);
 }
-
 
 
 
 /*
- * stops the wheels, then lets them run forward again.
+ * Stops the left wheel until further notice.
  */
-void startStop(){
-	pause();
-	straightForward();
+void stopLeft(){
+    P2DIR &= ~BIT2;
+    P2SEL &= ~BIT2;
+}
+
+/**
+ * Stops the right wheel from moving backwards.
+ */
+void stopRightBackward(){
+	P2DIR &= ~BIT5;
+	P2SEL &= ~BIT5;
 }
 
 
 /*
- * Moves the Car forward then backwards.
+ * Stops the left wheel from moving backwards.
  */
-void backAndForth(){
-	moveForward();
-	pause();
-	moveBackward();
-	pause();
+void stopLeftBackward(){
+	P2DIR &= ~BIT1;
+	P2SEL &= ~BIT1;
 }
 
 
 
+/*
+ * Starts the right wheel until further notice.
+ */
+void rightOn(){
+    P2DIR |= BIT4;
+    P2SEL |= BIT4;
+}
 
+
+/*
+ * Starts the left wheel until further notice.
+ */
+void leftOn(){
+    P2DIR |= BIT2;
+    P2SEL |= BIT2;
+}
+
+/*
+ * Makes the left wheel turn backwards.
+ */
+void leftOnBackward(){
+	P2DIR |=BIT1;
+	P2SEL |=BIT1;
+}
+
+/*
+ * Makes the right wheel turn backwards.
+ */
+void rightOnBackward(){
+	P2DIR |=BIT5;
+	P2SEL |=BIT5;
+}
+
+
+//_________________________________________________________________
+//_________________________________________________________________
