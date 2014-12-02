@@ -225,6 +225,14 @@ The text files for A functionality are shown below:
 [A Header](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/1.%20Code/A%20Functionality/A_Functionality.h)
 [A Implementation](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/1.%20Code/A%20Functionality/A_Function_Imp.c)
 
+#Analysis/Conclusion/Lessons Learned: 
+
+As a result of this process, I created a working robot which will serve as the backbone for future projects.  The process was difficult, but much was learned.  Motor stall current was finally understood, and how this tells use maximum PWM available to use in design.  Additionally, I learned not to wire up an LED in series by itself because it will get REALLY hot.  I learned ways to get around the fact that we cannot output a negative voltage.  I also learned to place capacitors across voltages so smooth the voltage for certain outputs/inputs.  As a result of doing so, the machine instantly became more reliable. Many other lessons learned are listed in the design process.  
+
+#Grading: 
+I got a 100% on all of the functionality and on the prelab.  I have to give you the grading sheet later when I come back from Japan.  
+
+
 
 #Documentation:
 ##Prelab
