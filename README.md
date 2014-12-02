@@ -208,6 +208,10 @@ The text files for required functionality are shown below:
 
 Notice, that the pinout for A Functionality is the same as the one for Required functionality.  The only addition is the sensor coming into the MSP430.  
 
+![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Functionality/A%20Functionality%20Schematic.PNG "Full Pinout")
+
+Note: The capacitors are not in the schematic, but were used in design.  They were over the 12v and 5v source, all four motor outputs, and the reset button on the MSP430.  The values used were just the ones given in class.  
+
 ##Creation/Debugging Process
 
 1. First, to do this, I used my code from lab 5 and made sure my remote kept working.  To do this, I temporarily removed the MSP430 from the robot, wired up the IR sensor, and ran my lab05 code for basic functionality.  It still worked, which was a good thing. 
