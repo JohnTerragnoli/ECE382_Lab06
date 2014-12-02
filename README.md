@@ -170,6 +170,33 @@ This has not been found yet.  It will be found in the lab soon, since it is not 
 
 #Required Functionality
 
+##Creation/Debugging Process
+
+1. For safety purposes, the motor stall current for the motor was then found.  To do this I simply put the voltage source in series with my robot.  I let the wheel run, and then abruptly stopped it.  I noticed that the ampere’s would jumped a little past 1A.  I lowered the voltage until it did not jump above 1A.  The voltage for this to occur was approximately 6.5v.  This means that 6.5/12 = 54%.  The duty cycle can then not go above 54%.  I made my duty cycle 50%, which is within the limits.  
+2. The design chosen in the prelab was over complicated.  I did take the time to physically construct my circuit.  When I tried to write my own code though, I got fairly confused and could not get anything to work.
+3. To fix this issue, I changed my design to match the schematic Dr. Coulston wrote on the board to help us.  The purpose of his schematic was to give us a starting point.  He also provided code for this starting point.  This starting point can be seen below: 
+
+
+![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Functionality/White%20Board%20Diagram.JPG "White Board Drawing")
+
+
+4. The actual and total pinout I used can be seen below: 
+
+![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Functionality/A%20Functionality%20Schematic.PNG "Full Pinout")
+
+
+5. The handrawn connections, which were helpful for me to look at, can be seen here: 
+
+![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Functionality/Handrawn%20Connections.JPG "Full Pinout")
+
+
+6. I then built the schematic on the fly.  Using the code given, I was able to get my car to spin in a circle.  This seemed really exciting to me.  I then commented out different sections of the code to understand what they do.  I realized that P2SEL and P2DIR were both needed to set the wheel direction.  I decided to make functions for these then commands.   I created four functions.  One to either turn forward or backward, or on or off forwards and backwards.  
+7. One of the hardest parts was to understand how to get the wheel to move backwards.  What I realized that that the second input to the motor P2.1, was going to be the other input to the motor.  Therefore, if I would P2.1 to a high of 12v, then this would jump over the approximately 6v input to the other side of the motor to make the wheel spin forward.  Because the motor is DC, if a negative voltage is applied across the terminals, then the wheel will spin backwards.  I messes around with what bits to use, but finally settled on BIT1 and BIT5 to make the left and right wheel move back respectively. 
+8. A simple problem I had was that once I set the bits 1 and 5 to make the wheel move backwards, I could never change the direction again.  I realized that this was because I never reset the bits 1 and 5 when I wanted to move forward again.  To fix this I simply reset the “backwards” bits when I wanted to travel forward and reset the “forward” bits when I wanted to ravel backwards.  After this occurred, I was able to output what I wanted to the car.  
+9. Using the simple commands for starting/stopping and wheel forward/backwards, I was able to create the medium level commands.  These were somewhat unnecessary, if only for simplicity sake.  What they do is just make the wheels work in synchronous, when desired.  
+10. Then, I combined these medium commands to functional commands, or moving the car in four directions and two half directions.  This was fairly simple.  A command which was very useful was the delay command, as seen in Dr. Coulston’s code, which was useful in creating turns of different angles.  To do a left turn, the left wheel needs to stop for a certain amount of time while the right one continues to spin.  To do a right turn, the wheels need to do the opposite.  
+11. The, I used the delay command to separate the movements of my robot so that it would be easily viewed.  I just combined all of the directional commands into a basic functionality function for simplicity sake.  Captain Trimble actually checked off on this on 11/21/14.  
+
 
 The text files for required functionality are shown below: 
 
@@ -178,6 +205,19 @@ The text files for required functionality are shown below:
 [Basic Implementation](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/1.%20Code/Basic%20Functionality/implementation.c)
 
 #A Functionality
+
+##Creation/Debugging Process
+
+1. First, to do this, I used my code from lab 5 and made sure my remote kept working.  To do this, I temporarily removed the MSP430 from the robot, wired up the IR sensor, and ran my lab05 code for basic functionality.  It still worked, which was a good thing. 
+2. I then copied all of my code for the lab 05 basic functionality into my new file for A functionality in lab 06.  This included the header file.  Originally, I used my lab06 basic functionality as the basic shell to achieve A functionality with.  However, this led to multiple issues, and so when I started over I decided to do it the other way.  It worked  
+3. The, what I did was wire the IR sensor to the logic analyzer.  I ran the code, pressed a button, and looked at the waveform on the screen.  To my surprise, nothing showed up.  At first I had no idea what was wrong.  Irrationally, I spent a great deal of time checking the code for the MSP430.  What I they did was take a different remote from the class and press a button on it.  The IR sensor and the logic analyzer did in fact pick up the signal from the second remote.  This meant that these two pieces of equipment were working and that my remote probably just wasn’t outputting anything.  Therefore, I went to the lab table and replaced the batteries.  I tried my remote again, and the waveform did show upon the logic analyzer. 
+4. I then did a quick check to see if my waveform matched the values I will be using in my header.  They still matched form the last lab.  
+5. Once I did this, I tried creating logic statement within the infinite while loop, just to see if the MSP430 was reading the signals correctly.  To try and test this, I tried using a variable, but CCS gave me a really hard time.  I tried using an LED, but this did not work either.  Then, I decided to just go for the gold and include a couple functions, like start not moving and move forward when the up button was pressed.  To my surprise it actually worked and I went over and told Sabin right away.  
+6. Once I realized these commands worked, I made four different if statements for the four directions.  I played it
+7. When I did this, I realized that on turns the wheel are only stopping half of the time.  This actually did not make sense to me.  While it is not in line with my predictions, it actually make the car turn faster, which is awesome.  Additionally, the button for right or left can just be held down to make it move that direction.  I thought it might have something to do with the reset button, but seeing as that there were no additional problems, I decided not to spend the time “fixing” it.  It was 0100 on a Saturday and I had not started packing for my trip to Japan.  I regret that decision now as I do not have enough sweatshirts and they do not have heat in these buildings.  
+
+
+The video showing A Functionality can be seen [here](https://www.youtube.com/watch?v=v359o0dWESg&feature=youtu.be).  This was submitted before the due date via email.  
 
 The text files for A functionality are shown below: 
 
