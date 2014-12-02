@@ -6,6 +6,8 @@
  *
  *  Created on: Nov 20, 2014
  *      Author: C16John.Terragnoli
+ *      Description: Contains useful functions for controlling the movement of the robot.
+ *      For: Lab06
  */
 
 
