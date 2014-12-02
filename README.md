@@ -184,6 +184,8 @@ This has not been found yet.  It will be found in the lab soon, since it is not 
 
 ![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Functionality/A%20Functionality%20Schematic.PNG "Full Pinout")
 
+Also, there should be a ground on the negative part of the 12v battery, and each of the batteries should be 4v, not 5v.  
+
 
 5. The handrawn connections, which were helpful for me to look at, can be seen here: 
 
@@ -210,7 +212,7 @@ Notice, that the pinout for A Functionality is the same as the one for Required 
 
 ![alt tag](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/2.%20Photos/Functionality/A%20Functionality%20Schematic.PNG "Full Pinout")
 
-Note: The capacitors are not in the schematic, but were used in design.  They were over the 12v and 5v source, all four motor outputs, and the reset button on the MSP430.  The values used were just the ones given in class.  
+Note: The capacitors are not in the schematic, but were used in design.  They were over the 12v and 5v source, all four motor outputs, and the reset button on the MSP430.  The values used were just the ones given in class.  Also, there should be a ground on the negative part of the 12v battery, and each of the batteries should be 4v, not 5v.  
 
 ##Creation/Debugging Process
 
