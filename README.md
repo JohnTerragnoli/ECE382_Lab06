@@ -206,6 +206,8 @@ The text files for required functionality are shown below:
 
 #A Functionality
 
+Notice, that the pinout for A Functionality is the same as the one for Required functionality.  The only addition is the sensor coming into the MSP430.  
+
 ##Creation/Debugging Process
 
 1. First, to do this, I used my code from lab 5 and made sure my remote kept working.  To do this, I temporarily removed the MSP430 from the robot, wired up the IR sensor, and ran my lab05 code for basic functionality.  It still worked, which was a good thing. 
@@ -239,5 +241,7 @@ I got a 100% on all of the functionality and on the prelab.  I have to give you 
 Only used the datasheets and the picture of the hardware hook up that was give to us by our teachers.  
 
 ##Required Functionality
+Dr. Coulston’s original schematic.  
 
 ##A Functionality
+Dr. Coulston’s original schematic.  
