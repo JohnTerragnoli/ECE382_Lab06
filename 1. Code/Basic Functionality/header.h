@@ -3,6 +3,8 @@
  *
  *  Created on: Nov 20, 2014
  *      Author: C16John.Terragnoli
+ *      Description: Contains the linkage between the function defitions and the main method where they are called.
+ *      For: Lab06
  */
 
 #ifndef HEADER_H_

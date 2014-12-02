@@ -6,6 +6,8 @@
  *
  *  Created on: Nov 20, 2014
  *      Author: C16John.Terragnoli
+ *      Description: Contains the defintion of the methods to move the car around.
+ *      For: Lab06
  */
 
 

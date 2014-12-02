@@ -5,10 +5,9 @@
 // Purp:	Demo the decoding of an IR packet
 //-----------------------------------------------------------------
 // Name:	JP Terragnoli
-// File:	lab5.c
 // Date:	Fall 2014
-// Purp:	Demo the decoding of an IR packet, and making the LEDs on
-//			the MSP430 light up via remote.
+// Purp:	Demo the decoding of an IR packet, and noving a robot car
+//			with an IR remote.
 //-----------------------------------------------------------------
 
 #include <msp430g2553.h>
