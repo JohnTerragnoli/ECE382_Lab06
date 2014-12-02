@@ -171,12 +171,19 @@ This has not been found yet.  It will be found in the lab soon, since it is not 
 #Required Functionality
 
 
+The text files for required functionality are shown below: 
+
+[Basic Main](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/1.%20Code/Basic%20Functionality/main.c)
+[Basic Header](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/1.%20Code/Basic%20Functionality/header.h)
+[Basic Implementation](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/1.%20Code/Basic%20Functionality/implementation.c)
 
 #A Functionality
 
+The text files for A functionality are shown below: 
 
-
-
+[A Main](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/1.%20Code/A%20Functionality/A_functionality.c)
+[A Header](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/1.%20Code/A%20Functionality/A_Functionality.h)
+[A Implementation](https://raw.githubusercontent.com/JohnTerragnoli/ECE382_Lab06/master/1.%20Code/A%20Functionality/A_Function_Imp.c)
 
 
 #Documentation:
